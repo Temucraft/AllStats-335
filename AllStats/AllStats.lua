@@ -1,7 +1,8 @@
 function AllStats_OnLoad()
 	CharacterAttributesFrame:Hide();
 	CharacterModelFrame:SetHeight(300);
-	PaperDollFrame_UpdateStats = NewPaperDollFrame_UpdateStats;
+	-- run after Blizzard's update (replacing PaperDollFrame_UpdateStats tainted the character window)
+	hooksecurefunc("PaperDollFrame_UpdateStats", NewPaperDollFrame_UpdateStats);
 end
 
 function NewPaperDollFrame_UpdateStats()
